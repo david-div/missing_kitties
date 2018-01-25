@@ -1,7 +1,7 @@
 require 'location'
 
 RSpec.describe Location do
-  let (:array) { %w[forward right] }
+  let (:array) { [] }
   subject(:location) { described_class.new(array) }
 
   context '#initalize' do
@@ -22,11 +22,33 @@ RSpec.describe Location do
     end
   end
 
-  context '#update_curr_dir' do
-    it 'should update the curr direction' do
-      location.update_curr_dir
-      expect(location.curr_dir).to eq(90)
-    end
-  end
+  describe '#update_curr_dir' do
+    context 'go right only' do
+      let (:array) { %w[right] }
 
+      it 'should update the curr direction' do
+        location.update_curr_dir
+        expect(location.curr_dir).to eq(90)
+      end
+    end
+
+    context 'go left only' do
+      let (:array) { %w[left] }
+
+      it 'should update the curr direction' do
+        location.update_curr_dir
+        expect(location.curr_dir).to eq(-90)
+      end
+    end
+
+    context 'go right and left' do
+      let (:array) { %w[right left] }
+
+      it 'should update the curr direction' do
+        location.update_curr_dir
+        expect(location.curr_dir).to eq(0)
+      end
+    end
+
+  end
 end
