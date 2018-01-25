@@ -1,15 +1,40 @@
 require 'get_data'
 
-RSpec.describe GetData do
-  subject(:get_data) { described_class.new }
+RSpec.describe Directions do
+  subject(:directions) { described_class.new }
 
-  context '#directions' do
+  dir = [
+      "forward",
+      "right",
+      "forward",
+      "forward",
+      "forward",
+      "left",
+      "forward",
+      "forward",
+      "left",
+      "right",
+      "forward",
+      "right",
+      "forward",
+      "forward",
+      "right",
+      "forward",
+      "forward",
+      "left"
+      ]
+
+  context '#get_data' do
     it 'should get the directions back from the API' do
-      expect(get_data.directions).not_to eq(nil)
+      expect(directions.get_data).not_to eq(nil)
     end
 
-    it 'should output an array' do
-      expect(get_data.directions).to be_an_instance_of(Array)
+  end
+
+    context '#parse_data' do
+      it 'should output the actually array' do
+    expect(directions.parse_data).to eq(dir)
     end
   end
+
 end
