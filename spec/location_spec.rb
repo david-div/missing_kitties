@@ -116,4 +116,20 @@ RSpec.describe Location do
       end
     end
   end
+
+  describe '#update_location' do
+    context 'going forward' do
+      let (:array) do
+        %w[forward]
+      end
+
+      it 'should update the dy coordinate by 1' do
+        location.update_curr_dir
+        location.update_coordinates
+        expect(location.dy).to eq(1)
+      end
+
+    end
+
+  end
 end

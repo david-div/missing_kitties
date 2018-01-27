@@ -12,12 +12,12 @@ class Location
   def update_curr_dir
     @directions.each do |dir|
       if dir == 'right'
-         @curr_dir += 90
-       elsif dir == 'left'
-         @curr_dir -= 90
-       else
-         dir
-       end
+        @curr_dir += 90
+      elsif dir == 'left'
+        @curr_dir -= 90
+      else
+        dir
+      end
       degree_update
       @dir_with_degrees << [dir, @curr_dir]
     end
@@ -26,5 +26,11 @@ class Location
   def degree_update
     @curr_dir = 0 if curr_dir == 360
     @curr_dir = 270 if curr_dir == -90
+  end
+
+  def update_coordinates
+    @dir_with_degrees.each do |dir, deg|
+      if dir == 'forward' && deg == 0 then @dy +=1 end
+    end
   end
 end
