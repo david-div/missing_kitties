@@ -11,12 +11,13 @@ class Location
 
   def update_curr_dir
     @directions.each do | dir |
-      next if dir == 'forward'
       dir == 'right' ? @curr_dir += 90 : @curr_dir -= 90
+      degree_update
     end
   end
 
-
-
+  def degree_update
+    @curr_dir = 0 if @curr_dir === 360
+  end
 
 end

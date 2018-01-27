@@ -1,6 +1,7 @@
 require 'location'
 
 RSpec.describe Location do
+
   let (:array) { [] }
   subject(:location) { described_class.new(array) }
 
@@ -17,7 +18,7 @@ RSpec.describe Location do
       expect(location.dy).to eq(0)
     end
 
-    it 'should should show the array' do
+    it 'should show the array' do
       expect(location.directions).to eq(array)
     end
   end
@@ -50,6 +51,18 @@ RSpec.describe Location do
         expect(location.curr_dir).to eq(0)
       end
     end
-
   end
+
+  describe '#degree_update' do
+    context 'going past 360 degrees' do
+      let (:array) { %w[right right right right] }
+
+      it 'should show the curr direction is 0' do
+        location.update_curr_dir
+        expect(location.curr_dir).to eq(0)
+      end
+
+    end
+  end
+
 end
