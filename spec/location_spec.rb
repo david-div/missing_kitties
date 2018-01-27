@@ -77,7 +77,43 @@ RSpec.describe Location do
         location.update_curr_dir
         expect(location.curr_dir).to eq(270)
       end
+    end
+  end
 
+  describe '#dir_with_degrees' do
+    context 'having both dir and degrees' do
+      let (:array) do
+        %w[
+          forward
+          right
+          forward
+          forward
+          forward
+          left
+          forward
+          forward
+          left
+        ]
+      end
+
+      let (:output) do
+        [
+          ['forward', 0],
+          ['right', 90],
+          ['forward', 90],
+          ['forward', 90],
+          ['forward', 90],
+          ['left', 0],
+          ['forward', 0],
+          ['forward', 0],
+          ['left', 270]
+        ]
+      end
+
+      it 'should show the correct degress and dir' do
+        location.update_curr_dir
+        expect(location.dir_with_degrees).to eq(output)
+      end
     end
   end
 end

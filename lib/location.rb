@@ -1,17 +1,25 @@
 class Location
-  attr_reader :curr_dir, :dx, :dy, :directions
+  attr_reader :curr_dir, :dx, :dy, :directions, :dir_with_degrees
 
   def initialize(directions = [])
     @curr_dir = 0
     @dx = 0
     @dy = 0
     @directions = directions
+    @dir_with_degrees = []
   end
 
   def update_curr_dir
     @directions.each do |dir|
-      dir == 'right' ? @curr_dir += 90 : @curr_dir -= 90
+      if dir == 'right'
+         @curr_dir += 90
+       elsif dir == 'left'
+         @curr_dir -= 90
+       else
+         dir
+       end
       degree_update
+      @dir_with_degrees << [dir, @curr_dir]
     end
   end
 
