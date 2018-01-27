@@ -1,6 +1,7 @@
 require 'get_data'
 
 RSpec.describe Directions do
+  
   subject(:directions) { described_class.new }
 
   dir = [
@@ -24,14 +25,14 @@ RSpec.describe Directions do
       "left"
       ]
 
-  context '#get_data' do
+  describe '#get_data' do
     it 'should get the directions back from the API' do
       expect(directions.get_data).not_to eq(nil)
     end
 
   end
 
-    context '#parse_data' do
+    describe '#parse_data' do
       it 'should output the actually array' do
     expect(directions.parse_data).to eq(dir)
     end

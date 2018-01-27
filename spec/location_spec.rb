@@ -4,7 +4,7 @@ RSpec.describe Location do
   let (:array) { [] }
   subject(:location) { described_class.new(array) }
 
-  context '#initalize' do
+  describe '#initalize' do
     it 'should start with dir 0' do
       expect(location.curr_dir).to eq(0)
     end
@@ -23,6 +23,7 @@ RSpec.describe Location do
   end
 
   describe '#update_curr_dir' do
+
     context 'go right only' do
       let (:array) { %w[right] }
 
