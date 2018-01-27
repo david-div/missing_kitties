@@ -128,8 +128,42 @@ RSpec.describe Location do
         location.update_coordinates
         expect(location.dy).to eq(1)
       end
-
     end
 
+    context 'going 90 degrees then forward' do
+      let (:array) do
+        %w[right forward]
+      end
+
+      it 'should update the dx coordinate by 1' do
+        location.update_curr_dir
+        location.update_coordinates
+        expect(location.dx).to eq(1)
+      end
+    end
+
+    context 'going -90 degrees then forward' do
+      let (:array) do
+        %w[left forward]
+      end
+
+      it 'should update the dx coordinate by -1' do
+        location.update_curr_dir
+        p location.update_coordinates
+        expect(location.dx).to eq(-1)
+      end
+    end
+
+    context 'going to 180 degrees then forward' do
+      let (:array) do
+        %w[right right forward]
+      end
+
+      it 'should update the dy coordinate by -1' do
+        location.update_curr_dir
+        p location.update_coordinates
+        expect(location.dy).to eq(-1)
+      end
+    end
   end
 end
