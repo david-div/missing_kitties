@@ -11,8 +11,6 @@ class Directions
   def parse_data
     get_data.parsed_response['directions']
   end
-
-
 end
 
 directions = Directions.new
