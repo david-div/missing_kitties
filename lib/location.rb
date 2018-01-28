@@ -10,7 +10,7 @@ class Location
   end
 
   def update_curr_dir
-    @directions.each do |dir|
+    directions.each do |dir|
       if dir == 'right'
         @curr_dir += 90
       elsif dir == 'left'
@@ -19,7 +19,7 @@ class Location
         dir
       end
       degree_update
-      @dir_with_degrees << [dir, @curr_dir]
+      dir_with_degrees << [dir, curr_dir]
     end
   end
 
@@ -29,11 +29,38 @@ class Location
   end
 
   def update_coordinates
-    @dir_with_degrees.each do |dir, deg|
-      if dir == 'forward' && deg == 0 then @dy +=1 end
-      if dir == 'forward' && deg == 90 then @dx +=1 end
-      if dir == 'forward' && deg == 180 then @dy -=1 end
-      if dir == 'forward' && deg == 270 then @dx =-1 end
+    dir_with_degrees.each do |dir, deg|
+      @dy += 1 if dir == 'forward' && deg == 0
+      @dx += 1 if dir == 'forward' && deg == 90
+      @dy -= 1 if dir == 'forward' && deg == 180
+      @dx = -1 if dir == 'forward' && deg == 270
+      p [dx, dy]
     end
   end
 end
+
+array = %w[
+  forward
+  right
+  forward
+  forward
+  forward
+  left
+  forward
+  forward
+  left
+  right
+  forward
+  right
+  forward
+  forward
+  right
+  forward
+  forward
+  left
+]
+
+location = Location.new(array)
+location.update_curr_dir
+location.update_coordinates
+p [location.dx, location.dy]
