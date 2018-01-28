@@ -30,11 +30,13 @@ class Location
 
   def update_coordinates
     dir_with_degrees.each do |dir, deg|
-      @dy += 1 if dir == 'forward' && deg == 0
-      @dx += 1 if dir == 'forward' && deg == 90
-      @dy -= 1 if dir == 'forward' && deg == 180
-      @dx = -1 if dir == 'forward' && deg == 270
-      p [dx, dy]
+      dir == 'forward' &&
+      case deg
+      when   0 then @dy +=1
+      when  90 then @dx += 1
+      when 180 then @dy -= 1
+      when 270 then @dx -= 1
+      end
     end
   end
 end
