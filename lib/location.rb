@@ -1,31 +1,10 @@
 class Location
-  attr_reader :curr_dir, :dx, :dy, :directions, :dir_with_degrees
+  attr_reader :dx, :dy, :dir_with_degrees
 
-  def initialize(directions = [])
-    @curr_dir = 0
+  def initialize(dir_with_degrees = [])
     @dx = 0
     @dy = 0
-    @directions = directions
-    @dir_with_degrees = []
-  end
-
-  def update_curr_dir
-    directions.each do |dir|
-      if dir == 'right'
-        @curr_dir += 90
-      elsif dir == 'left'
-        @curr_dir -= 90
-      else
-        dir
-      end
-      degree_update
-      dir_with_degrees << [dir, curr_dir]
-    end
-  end
-
-  def degree_update
-    @curr_dir =   0 if curr_dir == 360
-    @curr_dir = 270 if curr_dir == -90
+    @dir_with_degrees = dir_with_degrees
   end
 
   def update_coordinates
@@ -41,7 +20,7 @@ class Location
   end
 end
 
-array = %w[
+full_array = %w[
   forward
   right
   forward
@@ -62,7 +41,11 @@ array = %w[
   left
 ]
 
+array = [
+        ['forward', 0],
+        ['right', 90]
+      ]
+
 location = Location.new(array)
-location.update_curr_dir
 location.update_coordinates
-p [location.dx, location.dy]
+p location.dy
