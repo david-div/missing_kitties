@@ -24,7 +24,7 @@ class Location
   end
 
   def degree_update
-    @curr_dir = 0 if curr_dir == 360
+    @curr_dir =   0 if curr_dir == 360
     @curr_dir = 270 if curr_dir == -90
   end
 
@@ -32,7 +32,7 @@ class Location
     dir_with_degrees.each do |dir, deg|
       dir == 'forward' &&
       case deg
-      when   0 then @dy +=1
+      when   0 then @dy += 1
       when  90 then @dx += 1
       when 180 then @dy -= 1
       when 270 then @dx -= 1

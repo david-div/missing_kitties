@@ -1,17 +1,17 @@
 require 'httparty'
 
-class Directions
+class GetData
   include HTTParty
   base_uri 'which-technical-exercise.herokuapp.com'
 
-  def get_data
+  def directions
     self.class.get('/api/d.divilly@gmail.com/directions')
   end
 
   def parse_data
-    get_data.parsed_response['directions']
+    directions.parsed_response['directions']
   end
 end
 
-directions = Directions.new
-p directions.get_data
+get_data = GetData.new
+p get_data.directions
