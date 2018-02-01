@@ -72,6 +72,55 @@ RSpec.describe Location do
           expect(location.return_coordinates).to eq([0, 1])
         end
       end
+
+      context 'It should update y the coordinate' do
+        let (:array) do
+          [["forward", 0]]
+        end
+
+        it 'should return [0, 1]' do
+          expect(location.return_coordinates).to eq([0, 1])
+        end
+      end
+
+      context 'It should update the x coordinate' do
+        let (:array) do
+          [["forward", 90]]
+        end
+
+        it 'should return [1, 0]' do
+          expect(location.return_coordinates).to eq([1, 0])
+        end
+      end
+
+      context 'It should update both x and y coordinates' do
+        let (:array) do [
+          ["forward", 0],
+          ["forward", 90]
+        ]
+        end
+
+        it 'should return [1, 1]' do
+          expect(location.return_coordinates).to eq([1, 1])
+        end
+      end
+
+      context 'updated the dir and updated both x and y coordinates' do
+        let (:array) do [
+          ["forward", 0],
+          ["right", 0],
+          ["forward", 90],
+          ["right", 90],
+          ["forward", 180]
+        ]
+        end
+
+        it 'should return [0, 1]' do
+          expect(location.return_coordinates).to eq([1, 0])
+        end
+      end
+
+
     end
 
 
