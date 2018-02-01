@@ -5,11 +5,11 @@ class GetData
   base_uri 'which-technical-exercise.herokuapp.com'
 
   def directions
-    self.class.get('/api/d.divilly@gmail.com/directions')
+    dir = self.class.get('/api/d.divilly@gmail.com/directions')
+    dir.parsed_response['directions']
   end
 
   def parse_data
-    directions.parsed_response['directions']
   end
 end
 

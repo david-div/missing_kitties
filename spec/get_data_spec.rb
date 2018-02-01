@@ -34,7 +34,7 @@ RSpec.describe GetData do
 
   describe '#parse_data' do
     it 'should output the actually array' do
-      expect(get_data.parse_data).to eq(dir)
+      expect(get_data.directions).to eq(dir)
     end
   end
 end
