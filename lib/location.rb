@@ -7,6 +7,12 @@ class Location
     @dir_with_degrees = dir_with_degrees
   end
 
+  def return_coordinates
+    update_coordinates
+    [@dx,@dy]
+  end
+
+
   def update_coordinates
     dir_with_degrees.each do |dir, deg|
       dir == 'forward' &&
@@ -18,6 +24,7 @@ class Location
       end
     end
   end
+
 end
 
 full_array = %w[

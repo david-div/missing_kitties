@@ -60,5 +60,20 @@ RSpec.describe Location do
         expect(location.dy).to eq(-1)
       end
     end
+
+    describe '#return_coordinates' do
+
+      context 'It should update the coordinates' do
+        let (:array) do
+          [["forward", 0]]
+        end
+
+        it 'should show [0, 1]' do
+          expect(location.return_coordinates).to eq([0, 1])
+        end
+      end
+    end
+
+
   end
 end
