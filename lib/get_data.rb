@@ -14,4 +14,4 @@ class GetData
 end
 
 get_data = GetData.new
-p get_data.directions
+get_data.directions

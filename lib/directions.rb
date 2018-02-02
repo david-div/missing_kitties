@@ -7,6 +7,11 @@ class Directions
     @dir_with_degrees = []
   end
 
+  def update_directions
+    update_curr_dir
+    dir_with_degrees
+  end
+
   def update_curr_dir
     directions.each do |dir|
       if dir == 'right'
@@ -49,5 +54,10 @@ full_array = %w[
   left
 ]
 
- direction = Directions.new(full_array)
- direction.update_curr_dir
+ # direction = Directions.new($full_array)
+ # direction.update_curr_dir
+
+# flog --group --all lib
+# don't necesssarily need the rights and lefts once
+# I have the directions
+# also, I will only need the coordinates that need updating

@@ -63,7 +63,7 @@ RSpec.describe Location do
 
     describe '#return_coordinates' do
 
-      context 'It should update the coordinates' do
+      context 'it should update the coordinates' do
         let (:array) do
           [["forward", 0]]
         end
@@ -73,7 +73,7 @@ RSpec.describe Location do
         end
       end
 
-      context 'It should update y the coordinate' do
+      context 'it should update y the coordinate' do
         let (:array) do
           [["forward", 0]]
         end
@@ -83,7 +83,7 @@ RSpec.describe Location do
         end
       end
 
-      context 'It should update the x coordinate' do
+      context 'it should update the x coordinate' do
         let (:array) do
           [["forward", 90]]
         end
@@ -93,7 +93,7 @@ RSpec.describe Location do
         end
       end
 
-      context 'It should update both x and y coordinates' do
+      context 'it should update both x and y coordinates' do
         let (:array) do [
           ["forward", 0],
           ["forward", 90]

@@ -9,7 +9,7 @@ class Location
 
   def return_coordinates
     update_coordinates
-    [@dx,@dy]
+    return [@dx,@dy]
   end
 
 
@@ -53,6 +53,6 @@ array = [
         ['right', 90]
       ]
 
-location = Location.new(array)
-location.update_coordinates
-p location.dy
+# location = Location.new(array)
+# location.return_coordinates
+# p location.dy
