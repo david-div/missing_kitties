@@ -11,36 +11,36 @@ require_relative 'directions'
 
 class Controller
 
-  attr_reader :data
+  attr_reader :data, :directions, :location
 
-  def initialize(data = GetData.new)
-    @data = data.directions
+  def initialize(data = GetData, directions = Directions, location = Location)
+    @data = data.new
+    @directions = directions
+    @location = location
   end
+
+  def confirm_location
+    find_location
+    data.location(find_location[0], find_location[1])
+  end
+
+  def get_directions
+    directions.new(data.directions).update_directions
+  end
+
+  def find_location
+    location.new(get_directions).return_coordinates
+  end
+
+
+
 
 end
 
-# full_array = %w[
-#   forward
-#   right
-#   forward
-#   forward
-#   forward
-#   left
-#   forward
-#   forward
-#   left
-#   right
-#   forward
-#   right
-#   forward
-#   forward
-#   right
-#   forward
-#   forward
-#   left
-# ]
 
-# Controller.new(ClassName, otherClassName)
+controller = Controller.new
+p controller.confirm_location
+
 #
 # then when these are passed, pass in ClassName.new in the method
 # need to be able to psss in a simple array
