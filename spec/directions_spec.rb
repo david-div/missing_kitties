@@ -1,12 +1,10 @@
 require 'directions'
 
 RSpec.describe Directions do
-
-  let (:array) { [] }
+  let(:array) { [] }
   subject(:directions) { described_class.new(array) }
 
   describe '#initalize' do
-
     it 'should start with dir 0' do
       expect(directions.curr_dir).to eq(0)
     end
@@ -14,12 +12,11 @@ RSpec.describe Directions do
     it 'should show the array' do
       expect(directions.directions).to eq(array)
     end
-
   end
 
   describe '#update_curr_dir' do
     context 'go right only' do
-      let (:array) { %w[right] }
+      let(:array) { %w[right] }
 
       it 'should update the curr direction' do
         directions.update_curr_dir
@@ -28,7 +25,7 @@ RSpec.describe Directions do
     end
 
     context 'go left only' do
-      let (:array) { %w[left] }
+      let(:array) { %w[left] }
 
       it 'should update the curr direction' do
         directions.update_curr_dir
@@ -37,7 +34,7 @@ RSpec.describe Directions do
     end
 
     context 'go right and left' do
-      let (:array) { %w[right left] }
+      let(:array) { %w[right left] }
 
       it 'should update the curr direction' do
         directions.update_curr_dir
@@ -48,7 +45,7 @@ RSpec.describe Directions do
 
   describe '#degree_update' do
     context 'doing a full rotation' do
-      let (:array) { %w[right right right right] }
+      let(:array) { %w[right right right right] }
 
       it 'should show the curr direction is 0' do
         directions.update_curr_dir
@@ -57,7 +54,7 @@ RSpec.describe Directions do
     end
 
     context 'doing a full rotation + 1' do
-      let (:array) { %w[right right right right right] }
+      let(:array) { %w[right right right right right] }
 
       it 'should show the curr direction is 90' do
         directions.update_curr_dir
@@ -66,7 +63,7 @@ RSpec.describe Directions do
     end
 
     context 'doing left when facing north' do
-      let (:array) { %w[left] }
+      let(:array) { %w[left] }
 
       it 'should show 270 degrees' do
         directions.update_curr_dir
@@ -77,7 +74,7 @@ RSpec.describe Directions do
 
   describe '#dir_with_degrees' do
     context 'having both dir and degrees' do
-      let (:array) do
+      let(:array) do
         %w[
           forward
           right
@@ -91,7 +88,7 @@ RSpec.describe Directions do
         ]
       end
 
-      let (:output) do
+      let(:output) do
         [
           ['forward', 0],
           ['right', 90],

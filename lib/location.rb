@@ -9,50 +9,18 @@ class Location
 
   def return_coordinates
     update_coordinates
-    return [@dx,@dy]
+    [@dx, @dy]
   end
-
 
   def update_coordinates
     dir_with_degrees.each do |dir, deg|
       dir == 'forward' &&
-      case deg
-      when   0 then @dy += 1
-      when  90 then @dx += 1
-      when 180 then @dy -= 1
-      when 270 then @dx -= 1
-      end
+        case deg
+        when 0 then @dy += 1
+        when 90 then @dx += 1
+        when 180 then @dy -= 1
+        when 270 then @dx -= 1
+        end
     end
   end
-
 end
-
-full_array = %w[
-  forward
-  right
-  forward
-  forward
-  forward
-  left
-  forward
-  forward
-  left
-  right
-  forward
-  right
-  forward
-  forward
-  right
-  forward
-  forward
-  left
-]
-
-array = [
-        ['forward', 0],
-        ['right', 90]
-      ]
-
-# location = Location.new(array)
-# location.return_coordinates
-# p location.dy

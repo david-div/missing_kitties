@@ -2,7 +2,6 @@ require_relative 'get_data'
 require_relative 'location'
 require_relative 'directions'
 
-
 class Controller
   attr_reader :data, :directions, :location
 

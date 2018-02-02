@@ -30,34 +30,4 @@ class Directions
     @curr_dir =   0 if curr_dir == 360
     @curr_dir = 270 if curr_dir == -90
   end
-
 end
-
-full_array = %w[
-  forward
-  right
-  forward
-  forward
-  forward
-  left
-  forward
-  forward
-  left
-  right
-  forward
-  right
-  forward
-  forward
-  right
-  forward
-  forward
-  left
-]
-
- # direction = Directions.new($full_array)
- # direction.update_curr_dir
-
-# flog --group --all lib
-# don't necesssarily need the rights and lefts once
-# I have the directions
-# also, I will only need the coordinates that need updating

@@ -3,7 +3,7 @@ require 'get_data'
 RSpec.describe GetData do
   subject(:get_data) { described_class.new }
 
-  let (:dir) do
+  let(:dir) do
     %w[
       forward
       right

@@ -1,6 +1,6 @@
 require 'httparty'
 
-EMAIL = 'd.divilly@gmail.com'
+EMAIL = 'd.divilly@gmail.com'.freeze
 
 class GetData
   include HTTParty
@@ -12,11 +12,7 @@ class GetData
   end
 
   def location(x, y)
-     loc = self.class.get("/api/#{EMAIL}/location/#{x}/#{y}")
-     loc.parsed_response['message']
+    loc = self.class.get("/api/#{EMAIL}/location/#{x}/#{y}")
+    loc.parsed_response['message']
   end
-
 end
-
-get_data = GetData.new
-get_data.directions
